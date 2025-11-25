@@ -25,3 +25,6 @@ class TestParentNode(unittest.TestCase):
     def test_no_children(self):
         node = ParentNode("div", None)
         self.assertRaisesRegex(ValueError, "Error: No children!", node.to_html)
+
+if __name__ == "__main__":
+    unittest.main()
