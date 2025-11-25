@@ -19,7 +19,8 @@ class TestTextNode(unittest.TestCase):
 
     def test_link_defined(self):
         url = "https://www.boot.dev"
-        node = TextNode("This is a text node", TextType.BOLD, url)
+        node = TextNode("This is a link text node", TextType.LINK, url)
+        self.assertEqual(str(node), "TextNode(This is a link text node, link, https://www.boot.dev)")
 
     def test_link_undefined(self):
         node = TextNode("This is a text node", TextType.BOLD)
