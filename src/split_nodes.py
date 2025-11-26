@@ -51,6 +51,9 @@ def split_nodes_image(old_nodes: list[TextNode]):
 
             text = sections[1]
 
+        if text:
+            new_list.append(TextNode(text, TextType.TEXT))
+
     return new_list
 
 def split_nodes_link(old_nodes):
@@ -77,5 +80,8 @@ def split_nodes_link(old_nodes):
             new_list.append(TextNode(link_text, TextType.LINK, url))
 
             text = sections[1]
+
+        if text:
+            new_list.append(TextNode(text, TextType.TEXT))
 
     return new_list
