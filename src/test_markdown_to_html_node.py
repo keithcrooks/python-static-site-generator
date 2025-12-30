@@ -76,5 +76,21 @@ Do you like it?
             "<div><p>This is my list of dead good stuff!</p><ul><li>Food</li><li>Beer</li><li>Music</li></ul><p>Do you like it?</p></div>",
         )
 
+    def test_blockquote(self):
+        md = """
+Here's the deal, **I like Tolkien**.
+
+> "I am in fact a Hobbit in all but size."
+>
+> -- J.R.R. Tolkien
+"""
+
+        node = markdown_to_html_node(md)
+        html = node.to_html()
+        self.assertEqual(
+            html,
+            "<div><p>Here's the deal, <b>I like Tolkien</b>.</p><blockquote>\"I am in fact a Hobbit in all but size.\"\n\n-- J.R.R. Tolkien</blockquote></div>"
+        )
+
 if __name__ == "__main__":
     unittest.main()

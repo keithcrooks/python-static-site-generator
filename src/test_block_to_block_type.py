@@ -20,9 +20,11 @@ def hello(name):
         self.assertEqual(result, BlockType.CODE)
 
     def test_quote(self):
-        block = """> I have a dream that my four little children will one day live in a nation
+        block = """
+> I have a dream that my four little children will one day live in a nation
 > where they will not be judged by the color of their skin
-> but by the content of their character."""
+> but by the content of their character.
+"""
 
         result = block_to_block_type(block)
         self.assertEqual(result, BlockType.QUOTE)

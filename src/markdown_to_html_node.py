@@ -57,7 +57,7 @@ def block_to_html_node(block: str) -> HTMLNode:
 
         case BlockType.QUOTE:
             tag = "blockquote"
-            text = block.replace("> ", "")
+            text = block.replace("> ", "").replace(">\n", "\n")
             children = text_to_children(text)
 
         case BlockType.ORDERED_LIST:

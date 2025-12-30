@@ -38,7 +38,7 @@ def is_heading(block: str) -> bool:
     return bool(HEADING_REGEX.fullmatch(block))
 
 def is_quote(block :str) -> bool:
-    return all(line.startswith('> ') for line in block.splitlines())
+    return all(line.startswith('>') for line in block.splitlines())
 
 def is_ordered_list(block :str) -> bool:
     lines = block.splitlines()
