@@ -1,10 +1,10 @@
 import os
 import shutil
-from generate_page import *
+from generate_page_recursive import *
 
 def main():
     copy("./static", "public")
-    generate_page("content/index.md", "template.html", "public/index.html")
+    generate_pages_recursive("content", "template.html", "public")
 
 def copy(source, destination):
     print(f"Copying source `{source}` to destination `{destination}`...")
