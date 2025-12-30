@@ -16,7 +16,7 @@ class TestTextNodeToHTMLNode(unittest.TestCase):
         html_node = text_node_to_html_node(node)
         self.assertIsInstance(html_node, LeafNode)
         self.assertEqual(html_node.tag, "img")
-        self.assertEqual(html_node.value, "")
+        self.assertEqual(html_node.value, "This is an image node")
         self.assertDictEqual(html_node.props, {"src": "./image.png", "alt": "This is an image node"})
 
 if __name__ == "__main__":
