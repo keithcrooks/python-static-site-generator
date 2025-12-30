@@ -1,17 +1,10 @@
 import os
 import shutil
-from textnode import TextNode, TextType
+from generate_page import *
 
 def main():
-    # text_node = TextNode(
-    #     "This is some anchor text",
-    #     TextType.LINK,
-    #     "https://www.boot.dev"
-    # )
-
-    # print(text_node)
-
-    copy('./static', 'public')
+    copy("./static", "public")
+    generate_page("content/index.md", "template.html", "public/index.html")
 
 def copy(source, destination):
     print(f"Copying source `{source}` to destination `{destination}`...")
