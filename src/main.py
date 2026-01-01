@@ -1,10 +1,25 @@
 import os
 import shutil
+import sys
 from generate_page_recursive import *
 
 def main():
-    copy("./static", "public")
-    generate_pages_recursive("content", "template.html", "public")
+    basepath = get_base_path()
+    destination = "docs"
+    copy("./static", destination)
+    generate_pages_recursive("content", "template.html", destination, basepath)
+
+def get_base_path() -> str:
+    print("Getting base path...")
+
+    try:
+        basepath = sys.argv[1]
+    except IndexError:
+        basepath = "/"
+
+    print(f"Basepath: {basepath}")
+
+    return basepath
 
 def copy(source, destination):
     print(f"Copying source `{source}` to destination `{destination}`...")

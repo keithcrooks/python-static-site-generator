@@ -4,7 +4,8 @@ from generate_page import *
 def generate_pages_recursive(
     dir_path_content: str,
     template_path: str,
-    destination_dir_path: str
+    destination_dir_path: str,
+    basepath: str,
 ) -> None:
     print(f"Generating pages from {dir_path_content} to {destination_dir_path}...")
 
@@ -20,7 +21,7 @@ def generate_pages_recursive(
 
         if os.path.isdir(from_path):
             print("Entry IS a dir...")
-            generate_pages_recursive(from_path, template_path, destination_path)
+            generate_pages_recursive(from_path, template_path, destination_path, basepath)
             continue
 
         if not entry.endswith(".md"):
@@ -28,6 +29,6 @@ def generate_pages_recursive(
             continue
 
         print("Entry IS a MarkDown file...")
-        generate_page(from_path, template_path, destination_path.replace(".md", ".html"))
+        generate_page(from_path, template_path, destination_path.replace(".md", ".html"), basepath)
 
     print("Complete!")
